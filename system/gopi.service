@@ -1,0 +1,19 @@
+[Unit]
+Description=GoPieCheck
+
+[Service]
+# useradd -r -M -s /bin/false gopie-check
+# groupadd certs
+# usermod -a -G certs gopie-check
+# chown -R root.certs /certs
+User=gopie-check
+Group=gopie-check
+
+WorkingDirectory=/gopieproject
+
+Restart=on-failure
+ExecStart=/gopieproject/bin/check
+
+[Install]
+WantedBy=multi-user.target
+
